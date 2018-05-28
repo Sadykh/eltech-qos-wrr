@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,7 +22,11 @@
     <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
             <a href="#" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                </svg>
                 <strong>QoS</strong>
             </a>
         </div>
@@ -32,9 +35,15 @@
 
 <main role="main">
 
+    <p>
     <section class="jumbotron text-center">
+
+        Вам доступно 4 приоритета. A - самый высокий приоритет, D - самый низкий приоритет. У каждого приоритета надо
+        указать весовой коэффициент.
+    </p>
         <div class="container">
             <h1 class="jumbotron-heading">Пример заголовока</h1>
+            <p id="test1">Тут должен быть изменен текст</p>
             <p class="lead text-muted">
                 Тут будет описание проекта
             <p>
@@ -55,6 +64,6 @@
         <p>Тестовый шаблон, надо изменить</p>
     </div>
 </footer>
-
+<script src="../build/app.min.js"></script>
 </body>
 </html>
