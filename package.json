@@ -1,0 +1,27 @@
+{
+  "name": "eltech-qos-wrr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "tsc && browserify src/build/app.js > src/build/app.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sadykh/eltech-qos-wrr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sadykh/eltech-qos-wrr/issues"
+  },
+  "homepage": "https://github.com/Sadykh/eltech-qos-wrr#readme",
+  "dependencies": {
+    "browserify": "^16.2.2",
+    "jquery": "^3.3.1",
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.2"
+  }
+}
