@@ -32,6 +32,7 @@ export class Priority {
                 color: item.color
             });
             $('.priorityItems').append(model.getElementLi());
+            $('.programItems').append('<li><ul></ul></li>');
             priorityItems.push(model);
         }
         return priorityItems;
