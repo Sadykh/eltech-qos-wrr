@@ -2,11 +2,19 @@ import * as $ from "jquery";
 
 import {Priority} from "./Priority";
 
+/**
+ * Класс для программ
+ */
 export class Program {
-    name: string;
-    priority: Priority;
+    id: number;             // ID программы
+    name: string;           // Название программы
+    priority: Priority;     // Приоритет, к которому принадлежит
 
+    /**
+     * Конструктор класса для заполнения свойств
+     */
     constructor(opts: {
+        id: number,
         name: string,
         priority: Priority
     }) {
@@ -14,6 +22,11 @@ export class Program {
         this.priority = opts.priority;
     }
 
+    /**
+     * Инициализация данных
+     * @param {Array<Priority>} priorityItems
+     * @return {Array<Program>}
+     */
     static init(priorityItems: Array<Priority>): Array<Program> {
         const programInitData = [
             {name: 'World of Thunder', priorityId: 1},
@@ -41,9 +54,11 @@ export class Program {
             {name: 'Linux Remote', priorityId: 4},
         ];
 
-        const programList = [];
+        const programList: Array<Program> = [];
+        let i: number = 0;
         for (const item of programInitData) {
-            const model = new Program({
+            const model: Program = new Program({
+                id: i++,
                 name: item.name,
                 priority: priorityItems[item.priorityId - 1]
             });
@@ -53,7 +68,7 @@ export class Program {
         return programList;
     }
 
-    getElementLi() {
+    getElementLi(): string {
         return '<li>' + this.name + '</li>';
     }
 }
