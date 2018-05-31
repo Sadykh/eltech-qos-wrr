@@ -1,4 +1,5 @@
 import * as $ from "jquery";
+import {ProgramPacket} from "./ProgramPacket";
 
 /**
  * Класс приоритетов (A, B, C, D)
@@ -8,6 +9,7 @@ export class Priority {
     weight: number = 1;     // Вес приоритета
     rank: number;           // порядковый номер
     color: string;          // цвет приоритета
+    packets: ProgramPacket[];
 
     /**
      * Конструктор класса с аргументами для заполнения
@@ -44,6 +46,28 @@ export class Priority {
             priorityItems.push(model);
             $('.priorityItems').append(model.getElementLi());
             $('.programItems').append('<li><ul></ul></li>');
+        }
+        return priorityItems;
+    }
+
+    /**
+     * Соединить пакеты с приоритетом
+     * @param {Priority[]} priorityItems
+     * @param {ProgramPacket[]} packetList
+     * @return {Priority[]}
+     */
+    static attachPackets(priorityItems: Priority[], packetList: ProgramPacket[]) {
+        const tempPriorityList = {
+            0: [],
+            1: [],
+            2: [],
+            3: [],
+        };
+        for (const packet of packetList) {
+            tempPriorityList[packet.program.priority.rank].push(packet);
+        }
+        for (const index in tempPriorityList) {
+            priorityItems[index].packets = tempPriorityList[index];
         }
         return priorityItems;
     }
