@@ -41,6 +41,11 @@ footer p {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
+.wrapper {
+    max-width: 990px;
+    margin: 0 auto;
+}
+
 .priorityItems, .programItems {
     text-align: center;
 }
@@ -71,4 +76,19 @@ footer p {
 
 .programItems > li > ul > li {
     list-style: square
+}
+
+#priorityListPackets {
+    display: block;
+    text-align: center;
+}
+
+#priorityListPackets li {
+    display: inline-block;
+}
+
+.priorityPackets-column {
+    width: 230px;
+    vertical-align: top;
+    display: inline-block;
 }
