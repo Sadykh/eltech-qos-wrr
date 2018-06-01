@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Заголовок</title>
+    <title>Модель алгоритма QoS</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -68,6 +68,35 @@
                 </div>
             </div>
         </div>
+        <div class="wrapper">
+            <hr>
+            <p>Визуальная очередь</p>
+            <div class="priorityPacketsQueue">
+                <div class="priorityPacketsQueue-column" id="priorityPacketsQueue-column-1">
+                    <ul></ul>
+                </div>
+                <div class="priorityPacketsQueue-column" id="priorityPacketsQueue-column-2">
+                    <ul></ul>
+                </div>
+                <div class="priorityPacketsQueue-column" id="priorityPacketsQueue-column-3">
+                    <ul></ul>
+                </div>
+                <div class="priorityPacketsQueue-column" id="priorityPacketsQueue-column-4">
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <hr>
+            <p>Отправленные пакеты</p>
+            <a href="#" class="send-packets btn btn-primary">Отправить</a>
+            <div class="priorityPacketsQueueDone">
+                <div class="priorityPacketsQueueDone-column" id="priorityPacketsQueueDone-column-1">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -78,7 +107,6 @@
         <p class="float-right">
             <a href="#">Подняться наверх</a>
         </p>
-        <p>Тестовый шаблон, надо изменить</p>
     </div>
 </footer>
 <script src="../build/app.min.js"></script>
