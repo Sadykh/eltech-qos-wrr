@@ -45,14 +45,28 @@ export class ProgramPacket {
                 });
                 result.push(model);
                 $('.priorityPacket-' + (model.program.priority.rank + 1)).append(model.getElementLi());
+                $('#priorityPacketsQueue-column-' + (model.program.priority.rank + 1) + ' ul').append(model.getElementLiVisual());
             }
         }
         return result;
     }
 
     getElementLi(): string {
-        return '<li>' +
+        return '<li data-uuid="' + this.program.name + '-' + this.size + '">' +
             this.program.name + '(' + this.size + 'кб)' +
             '</li>';
+    }
+
+    getElementLiVisual(): string {
+        return '<li style="background-color: ' + this.program.priority.color + '" data-uuid="' + this.program.name + '-' + this.size + '">' +
+            this.program.name + '(' + this.size + 'кб)' +
+            '</li>';
+    }
+
+    sendElement() {
+        const uuid = this.program.name + '-' + this.size;
+        $('#priorityPacketsQueue-column-' + (this.program.priority.rank + 1) + ' ul').find(`[data-uuid='${uuid}']`).slideUp();
+        const element = this.getElementLiVisual();
+        $('.priorityPacketsQueueDone-column ul').append(element);
     }
 }
