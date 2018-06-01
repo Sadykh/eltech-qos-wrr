@@ -41,8 +41,9 @@ export class Priority {
             const model: Priority = new Priority({
                 name: item.name,
                 rank: Number(index),
-                color: item.color
+                color: item.color,
             });
+            model.setWeight(5 - Number(index));
             priorityItems.push(model);
             $('.priorityItems').append(model.getElementLi());
             $('.programItems').append('<li><ul></ul></li>');
@@ -80,8 +81,19 @@ export class Priority {
         return '<li style="background: ' + this.color + '">' +
             '<div class="form-group">\n' +
             '    <label for="priority-' + this.rank + '">' + this.name + '</label>\n' +
-            '    <input type="number" class="form-control" id="priority-' + this.rank + '" placeholder="Укажите вес">\n' +
+            '    <input type="number" class="form-control" value="'+ this.weight +'" id="priority-' + this.rank + '" placeholder="Укажите вес">\n' +
             '</div>' +
             '</li>';
+    }
+
+    getPacket(): ProgramPacket | null {
+        const items = this.packets;
+        let index = 0;
+        let item = items[index];
+        while (!item && index < items.length) {
+            item = items[++index];
+        }
+        delete items[index];
+        return item;
     }
 }
