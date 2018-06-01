@@ -8,6 +8,16 @@ export class Queue {
     currentWeight: number = 0;      // текущий вес в очереди
     maxWeight: number = 0;
 
+
+    static init(list: Priority[]) {
+        const model = new Queue();
+        for (const index in list) {
+            const item = list[index];
+            model.add(item);
+        }
+        return model;
+    }
+
     /**
      * Получить уникальный порядковый номер
      * @return {number}
@@ -79,7 +89,7 @@ export class Queue {
      * Получить приоритет
      * @return {Priority | null}
      */
-    get() {
+    get(): Priority | null {
         while (true) {
             this.lastNumberQueue = (this.lastNumberQueue + 1) % this.length;
             if (this.lastNumberQueue == 0) {
