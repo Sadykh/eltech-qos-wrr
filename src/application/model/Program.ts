@@ -68,6 +68,10 @@ export class Program {
         return programList;
     }
 
+    /**
+     * Получить html элемент для вывода
+     * @return {string}
+     */
     getElementLi(): string {
         return '<li>' + this.name + '</li>';
     }

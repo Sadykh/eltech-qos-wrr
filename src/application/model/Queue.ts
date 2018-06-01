@@ -2,13 +2,18 @@ import {Priority} from "./Priority";
 
 export class Queue {
     lastId: number = 0;             // последний ID номер очереди (чтобы генерировать следующие)
-    elementMap: object = {};             // хэшмэп для хранения элементов приоритета
-    length: number = 0;                 // количество приоритетов (размер)
+    elementMap: object = {};        // хэшмэп для хранения элементов приоритета
+    length: number = 0;             // количество приоритетов (размер)
     lastNumberQueue: number = -1;   // указывает элемент, который был выбран в последний раз
     currentWeight: number = 0;      // текущий вес в очереди
-    maxWeight: number = 0;
+    maxWeight: number = 0;          // максимальный вес
 
 
+    /**
+     * Инициализация протокола
+     * @param {Priority[]} list
+     * @return {Queue}
+     */
     static init(list: Priority[]) {
         const model = new Queue();
         for (const index in list) {

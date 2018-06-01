@@ -5,11 +5,12 @@ import {ProgramPacket} from "./ProgramPacket";
  * Класс приоритетов (A, B, C, D)
  */
 export class Priority {
-    name: string;           // название приоритета (A, B, C, D)
-    weight: number = 1;     // Вес приоритета
-    rank: number;           // порядковый номер
-    color: string;          // цвет приоритета
-    packets: ProgramPacket[];
+    name: string;               // название приоритета (A, B, C, D)
+    weight: number = 1;         // Вес приоритета
+    rank: number;               // порядковый номер
+    color: string;              // цвет приоритета
+    packets: ProgramPacket[];   // привязка пакетов
+    lastIndexPacker: number = 0;// последний index массива пакетов
 
     /**
      * Конструктор класса с аргументами для заполнения
@@ -73,27 +74,35 @@ export class Priority {
         return priorityItems;
     }
 
+    /**
+     * Установить вес приоритету
+     * @param {number} value
+     */
     setWeight(value: number) {
         this.weight = value;
     }
 
+    /**
+     * Получить html элемент для вывода
+     * @return {string}
+     */
     getElementLi(): string {
         return '<li style="background: ' + this.color + '">' +
             '<div class="form-group">\n' +
             '    <label for="priority-' + this.rank + '">' + this.name + '</label>\n' +
-            '    <input type="number" class="form-control" value="'+ this.weight +'" id="priority-' + this.rank + '" placeholder="Укажите вес">\n' +
+            '    <input type="number" class="form-control priority-input-event" value="' + this.weight + '" id="priority-' + this.rank + '" data-id="' + this.rank + '" placeholder="Укажите вес">\n' +
             '</div>' +
             '</li>';
     }
 
+    /**
+     * Получить пакет из приоритета
+     * @return {ProgramPacket | null}
+     */
     getPacket(): ProgramPacket | null {
         const items = this.packets;
-        let index = 0;
-        let item = items[index];
-        while (!item && index < items.length) {
-            item = items[++index];
-        }
-        delete items[index];
+        const item = items[this.lastIndexPacker];
+        delete items[this.lastIndexPacker++];
         return item;
     }
 }

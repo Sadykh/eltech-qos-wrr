@@ -51,18 +51,29 @@ export class ProgramPacket {
         return result;
     }
 
+    /**
+     * Получить элемент для вывода
+     * @return {string}
+     */
     getElementLi(): string {
         return '<li data-uuid="' + this.program.name + '-' + this.size + '">' +
             this.program.name + '(' + this.size + 'кб)' +
             '</li>';
     }
 
+    /**
+     * Получить html элемент для вывода в таблице выполненных
+     * @return {string}
+     */
     getElementLiVisual(): string {
         return '<li style="background-color: ' + this.program.priority.color + '" data-uuid="' + this.program.name + '-' + this.size + '">' +
             this.program.name + '(' + this.size + 'кб)' +
             '</li>';
     }
 
+    /**
+     * Отправка пакета
+     */
     sendElement() {
         const uuid = this.program.name + '-' + this.size;
         $('#priorityPacketsQueue-column-' + (this.program.priority.rank + 1) + ' ul').find(`[data-uuid='${uuid}']`).slideUp();
